@@ -37,4 +37,5 @@ Utility will use these parameters for restore:
 `docker run --rm -it -e PGHOST=xx -e PGUSER=xx -e PGPASSWORD=xx -e AWS_DEFAULT_REGION=eu-west-1 -e AWS_ACCESS_KEY_ID=xx -e AWS_SECRET_ACCESS_KEY=xx -v /restoretemp upptec/pgrestore_from_s3 s3://my_bucket/my_folder/mydump.gz mydb`
 
 ## Howto dump
+
 See [PGDump to S3](https://github.com/Upptec/pgdump_to_s3).
