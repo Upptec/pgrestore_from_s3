@@ -7,5 +7,5 @@ if [[ ${FILENAME: -3} == ".gz" ]]; then
   gzip -d "$TEMP_RESTORE_DIR/$FILENAME"
   FILENAME=${FILENAME%.*}
 fi
-pg_restore --clean --no-acl --no-owner -d $DBTARGET $TEMP_RESTORE_DIR/$FILENAME
+pg_restore --verbose --clean --no-acl --no-owner -d $DBTARGET $TEMP_RESTORE_DIR/$FILENAME
 rm $TEMP_RESTORE_DIR/$FILENAME
