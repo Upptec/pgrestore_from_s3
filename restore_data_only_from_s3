@@ -1,0 +1,11 @@
+#!/bin/bash
+S3SOURCE=$1
+DBTARGET=$2
+FILENAME=$(echo "$S3SOURCE" | rev | cut -d/ -f1 | rev)
+aws s3 cp $S3SOURCE $TEMP_RESTORE_DIR
+if [[ ${FILENAME: -3} == ".gz" ]]; then
+  gzip -d "$TEMP_RESTORE_DIR/$FILENAME"
+  FILENAME=${FILENAME%.*}
+fi
+pg_restore --verbose --data-only --no-acl --no-owner -d $DBTARGET $TEMP_RESTORE_DIR/$FILENAME
+rm $TEMP_RESTORE_DIR/$FILENAME
