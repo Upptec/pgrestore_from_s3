@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM alpine:3.6
 MAINTAINER Lars Krantz
 
 ENV TEMP_RESTORE_DIR /restoretemp
